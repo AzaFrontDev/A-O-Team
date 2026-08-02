@@ -1,9 +1,20 @@
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Включаем CORS для запросов с вашего фронтенда
+app.use(cors());
 app.use(express.json());
+
+// Функция безопасного экранирования HTML
+function escapeHtml(str = "") {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
 
 app.post("/api/contact", async (req, res) => {
   try {
@@ -20,12 +31,14 @@ app.post("/api/contact", async (req, res) => {
       return res.status(500).json({ error: "Telegram secrets are not configured." });
     }
 
-    const text = `🚀 *Новая заявка с сайта A&O Team!*
+    // Безопасная HTML-разметка без риска поломки парсинга
+    const text = 
+`🚀 <b>Новая заявка с сайта A&amp;O Team!</b>
 
-👤 *Имя:* ${name}
-💬 *Связь:* ${contact}
-📝 *Описание проекта:*
-${message}`;
+👤 <b>Имя:</b> ${escapeHtml(name)}
+💬 <b>Связь:</b> ${escapeHtml(contact)}
+📝 <b>Описание проекта:</b>
+${escapeHtml(message)}`;
 
     const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: "POST",
@@ -33,7 +46,7 @@ ${message}`;
       body: JSON.stringify({
         chat_id: chatId,
         text,
-        parse_mode: "Markdown",
+        parse_mode: "HTML",
       }),
     });
 
@@ -44,7 +57,7 @@ ${message}`;
 
     res.json({ ok: true });
   } catch (error) {
-    console.error(error);
+    console.error("Express /api/contact error:", error);
     res.status(500).json({ error: "Ошибка отправки в Telegram." });
   }
 });

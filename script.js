@@ -109,7 +109,11 @@
       };
 
       try {
-        const response = await fetch("/api/contact", {
+        const apiUrl = window.location.hostname === "localhost"
+          ? "/api/contact"
+          : "https://a-o-team.onrender.com/api/contact";
+
+        const response = await fetch(apiUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),

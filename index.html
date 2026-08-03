@@ -367,19 +367,46 @@
               />
             </div>
             
-            <!-- Вот этот новый блок с выбором услуги -->
             <div class="form__field">
-              <label class="form__label" for="service">Что вас интересует?</label>
-              <select class="input" id="service" name="service" required>
-                <option value="" disabled selected>Выберите услугу</option>
-                <option value="Лендинг">Лендинг (от 8 000 KGS)</option>
-                <option value="Сайт-визитка">Сайт-визитка (от 5 000 KGS)</option>
-                <option value="Многостраничник">Многостраничник (от 20 000 KGS)</option>
-                <option value="Редизайн">Редизайн (от 7 000 KGS)</option>
-                <option value="Доработка / Re-work">Доработка / Re-work (от 2 000 KGS)</option>
-              </select>
-            </div>
-            <!-- Конец нового блока -->
+  <label class="form__label">Что вас интересует?</label>
+  <ul class="form__services-grid">
+    <li>
+      <label class="form__service-card">
+        <input type="radio" name="service" value="Лендинг" required>
+        <span class="form__service-title">Лендинг</span>
+        <span class="form__service-price">от 8 000 KGS</span>
+      </label>
+    </li>
+    <li>
+      <label class="form__service-card">
+        <input type="radio" name="service" value="Сайт-визитка">
+        <span class="form__service-title">Сайт-визитка</span>
+        <span class="form__service-price">от 5 000 KGS</span>
+      </label>
+    </li>
+    <li>
+      <label class="form__service-card">
+        <input type="radio" name="service" value="Многостраничник">
+        <span class="form__service-title">Многостраничник</span>
+        <span class="form__service-price">от 20 000 KGS</span>
+      </label>
+    </li>
+    <li>
+      <label class="form__service-card">
+        <input type="radio" name="service" value="Редизайн">
+        <span class="form__service-title">Редизайн</span>
+        <span class="form__service-price">от 7 000 KGS</span>
+      </label>
+    </li>
+    <li>
+      <label class="form__service-card">
+        <input type="radio" name="service" value="Доработка / Re-work">
+        <span class="form__service-title">Доработка / Re-work</span>
+        <span class="form__service-price">от 2 000 KGS</span>
+      </label>
+    </li>
+  </ul>
+</div>
 
             <div class="form__field">
               <label class="form__label" for="message">Описание проекта</label>

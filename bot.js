@@ -18,7 +18,6 @@ function escapeHtml(str = "") {
 
 app.post("/api/contact", async (req, res) => {
   try {
-    // Вытягиваем новое поле service
     const { name, contact, service, message } = req.body || {};
 
     if (!name || !contact || !service || !message) {
@@ -32,13 +31,30 @@ app.post("/api/contact", async (req, res) => {
       return res.status(500).json({ error: "Telegram secrets are not configured." });
     }
 
-    // Собираем правильную разметку с услугой
+    const serviceTrimmed = String(service).trim();
+    const priorityBadge = (() => {
+      switch (serviceTrimmed) {
+        case "Многостраничник":
+          return "🔴 [ВЫСОКИЙ ПРИОРИТЕТ]";
+        case "Лендинг":
+        case "Редизайн":
+          return "🟡 [СТАНДАРТ]";
+        case "Сайт-визитка":
+        case "Доработка / Re-work":
+          return "🟢 [БЫСТРАЯ ЗАДАЧА]";
+        default:
+          return "🟡 [СТАНДАРТ]";
+      }
+    })();
+
+    // Формируем итоговый текст сообщения
     const text = 
 `🚀 <b>Новая заявка с сайта AO Team!</b>
+${priorityBadge}
 
 👤 <b>Имя:</b> ${escapeHtml(name)}
 💬 <b>Связь:</b> ${escapeHtml(contact)}
-🛠 <b>Услуга:</b> ${escapeHtml(service)}
+🛠 <b>Услуга:</b> ${escapeHtml(serviceTrimmed)}
 📝 <b>Описание проекта:</b>
 ${escapeHtml(message)}`;
 

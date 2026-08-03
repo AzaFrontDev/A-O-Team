@@ -64,8 +64,8 @@
     revealItems.forEach((el) => el.classList.add("is-visible"));
   }
 
-  /* ---------- 4. Contact form ---------- */
-  const form = document.getElementById("contact-form");
+/* ---------- 4. Contact form ---------- */
+ const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
 
   const showStatus = (message, isError = false) => {
@@ -77,17 +77,27 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const fields = ["name", "contact", "message"].map((id) => document.getElementById(id));
       let valid = true;
 
-      fields.forEach((field) => {
-        const empty = field.value.trim() === "";
-        field.classList.toggle("is-invalid", empty);
+      // 1. Проверяем текстовые поля
+      const textFields = ["name", "contact", "message"].map((id) => document.getElementById(id));
+      textFields.forEach((field) => {
+        const empty = !field || !field.value || field.value.trim() === "";
+        if (field) field.classList.toggle("is-invalid", empty);
         if (empty) valid = false;
       });
 
+      // 2. Проверяем выбор услуги (радиокнопки)
+      const serviceRadio = document.querySelector('input[name="service"]:checked');
+      const serviceValue = serviceRadio ? serviceRadio.value : null;
+
+      if (!serviceValue) {
+        valid = false;
+        // Опционально: можно добавить класс ошибки на ul.form__services-grid
+      }
+
       if (!valid) {
-        showStatus("Пожалуйста, заполните все поля.", true);
+        showStatus("Пожалуйста, заполните все поля и выберите услугу.", true);
         return;
       }
 
@@ -105,6 +115,7 @@
       const payload = {
         name,
         contact,
+        service: serviceValue, // Закидываем найденное значение
         message,
       };
 
@@ -141,11 +152,12 @@
       }
     });
 
-    form.querySelectorAll(".input").forEach((input) => {
+    // Сброс красных рамок при вводе
+    form.querySelectorAll(".input, input[type='radio']").forEach((input) => {
       input.addEventListener("input", () => input.classList.remove("is-invalid"));
+      input.addEventListener("change", () => input.classList.remove("is-invalid"));
     });
   }
-
   /* ---------- 5. Footer year ---------- */
   const yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());

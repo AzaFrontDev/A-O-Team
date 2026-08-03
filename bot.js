@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Включаем CORS для запросов с вашего фронтенда
+// Включаем CORS для запросов с фронтенда
 app.use(cors());
 app.use(express.json());
 
@@ -18,9 +18,10 @@ function escapeHtml(str = "") {
 
 app.post("/api/contact", async (req, res) => {
   try {
-    const { name, contact, message } = req.body || {};
+    // Вытягиваем новое поле service
+    const { name, contact, service, message } = req.body || {};
 
-    if (!name || !contact || !message) {
+    if (!name || !contact || !service || !message) {
       return res.status(400).json({ error: "Пожалуйста, заполните все поля." });
     }
 
@@ -31,12 +32,13 @@ app.post("/api/contact", async (req, res) => {
       return res.status(500).json({ error: "Telegram secrets are not configured." });
     }
 
-    // Безопасная HTML-разметка без риска поломки парсинга
+    // Собираем правильную разметку с услугой
     const text = 
-`🚀 <b>Новая заявка с сайта A&amp;O Team!</b>
+`🚀 <b>Новая заявка с сайта AO Team!</b>
 
 👤 <b>Имя:</b> ${escapeHtml(name)}
 💬 <b>Связь:</b> ${escapeHtml(contact)}
+🛠 <b>Услуга:</b> ${escapeHtml(service)}
 📝 <b>Описание проекта:</b>
 ${escapeHtml(message)}`;
 
@@ -58,7 +60,7 @@ ${escapeHtml(message)}`;
     res.json({ ok: true });
   } catch (error) {
     console.error("Express /api/contact error:", error);
-    res.status(500).json({ error: "Ошибка отправки в Telegram." });
+    res.status(500).json({ error: "Ошибка отправки." });
   }
 });
 

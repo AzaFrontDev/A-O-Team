@@ -1,0 +1,58 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.card--pad {
+  padding: 24px;
+}
+
+.card--hover:hover,
+.card--hover:focus-within {
+  transform: translateY(-6px);
+  border-color: rgba(139, 92, 246, 0.55);
+  box-shadow: var(--shadow-glow);
+}
+
+.card__title {
+  margin-top: 14px;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.card__text {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.icon-badge {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--violet-light);
+  font-family: var(--font-mono);
+}
+
+.service__price {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 6px 12px;
+  background: rgba(139, 92, 246, 0.1); /* Лёгкая подложка в цвет твоих иконок */
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: var(--radius-sm);
+  color: var(--violet-light);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+}

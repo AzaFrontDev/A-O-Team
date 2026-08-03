@@ -1,0 +1,140 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  transition:
+    background var(--transition),
+    border-color var(--transition);
+  border-bottom: 1px solid transparent;
+}
+
+.header.is-scrolled {
+  background: rgba(11, 15, 25, 0.82);
+  backdrop-filter: blur(18px);
+  border-bottom-color: var(--border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 64px;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header__cta {
+  display: none;
+}
+
+.nav {
+  display: none;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav__link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.nav__link:hover {
+  color: var(--text);
+}
+
+/* Burger */
+.burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.burger:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+}
+
+.burger__box {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 14px;
+}
+
+.burger__line {
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform var(--transition), opacity var(--transition), top var(--transition);
+}
+
+.burger__line:nth-child(1) { top: 0; }
+.burger__line:nth-child(2) { top: 6px; }
+.burger__line:nth-child(3) { top: 12px; }
+
+.burger.is-open .burger__line:nth-child(1) {
+  top: 6px;
+  transform: rotate(45deg);
+}
+
+.burger.is-open .burger__line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.is-open .burger__line:nth-child(3) {
+  top: 6px;
+  transform: rotate(-45deg);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  border-top: 1px solid var(--border);
+  background: rgba(11, 15, 25, 0.96);
+  backdrop-filter: blur(18px);
+  padding-block: 16px;
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mobile-menu__link {
+  display: block;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  transition: background var(--transition), color var(--transition);
+}
+
+.mobile-menu__link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+}
+
+.mobile-menu__cta {
+  margin-top: 14px;
+  width: 100%;
+}

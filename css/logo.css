@@ -1,0 +1,54 @@
+.logo {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 18px rgba(139, 92, 246, 0.75);
+}
+
+.logo--sm {
+  font-size: 0.875rem;
+}
+
+.logo::before,
+.logo::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.logo::before {
+  color: var(--violet-light);
+  clip-path: inset(0 0 55% 0);
+}
+
+.logo::after {
+  color: var(--violet);
+  clip-path: inset(55% 0 0 0);
+}
+
+.logo:hover::before {
+  opacity: 1;
+  animation: glitch-a 0.5s steps(2, end) infinite;
+}
+
+.logo:hover::after {
+  opacity: 1;
+  animation: glitch-b 0.5s steps(2, end) infinite;
+}
+
+@keyframes glitch-a {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-2px, -1px); }
+  100% { transform: translate(2px, 1px); }
+}
+
+@keyframes glitch-b {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(2px, 1px); }
+  100% { transform: translate(-2px, -1px); }
+}

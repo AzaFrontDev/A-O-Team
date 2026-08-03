@@ -16,7 +16,7 @@
       content="Превращаем макеты и идеи в чистый, оптимизированный и адаптивный код."
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="./src/logo.png" type="image/x-icon" />
+    <link rel="icon" href="./src/Logo.webp" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,10 +32,9 @@
     <!-- ===== HEADER ===== -->
     <header class="header" id="header">
       <div class="container header__inner">
-        <a class="logo" href="#hero" data-text="<A&O.Team/>" aria-label="A&O Team — на главную"
-          >&lt;A&amp;O.Team/&gt;</a
-        >
-
+        <a class="logo" href="#hero" aria-label="A&O Team — на главную">
+  <img src="/src/Logo.webp" alt="A&O Team Logo" class="logo__img" />
+</a>
         <nav class="nav" aria-label="Основная навигация">
           <ul class="nav__list">
             <li><a class="nav__link" href="#about">О нас</a></li>
@@ -246,81 +245,81 @@
 
       <!-- ===== PORTFOLIO ===== -->
       <section class="section" id="portfolio">
-        <div class="container">
-          <header class="section__head reveal">
-            <p class="eyebrow">// Портфолио</p>
-            <h2 class="section__title">Проекты и кейсы</h2>
-          </header>
-          <ul class="grid grid--3">
-            <li class="card card--hover project reveal">
-              <div class="window__bar">
-                <span class="dots" aria-hidden="true">
-                  <i class="dot dot--red"></i><i class="dot dot--yellow"></i
-                  ><i class="dot dot--green"></i>
-                </span>
-                <span class="project__url">qaragat-hotel.site</span>
-              </div>
-              <div class="project__body">
-                <div class="project__thumb" aria-hidden="true"></div>
-                <h3 class="card__title">Qaragat Hotel Site</h3>
-                <p class="card__text">
-                  Сайт отеля с презентацией номеров, галереей и формой бронирования. Акцент на
-                  скорость загрузки и мобильную версию.
-                </p>
-                <ul class="tags">
-                  <li class="tag">HTML5</li>
-                  <li class="tag">CSS3</li>
-                  <li class="tag">JavaScript</li>
-                </ul>
-              </div>
-            </li>
-            <li class="card card--hover project reveal">
-              <div class="window__bar">
-                <span class="dots" aria-hidden="true">
-                  <i class="dot dot--red"></i><i class="dot dot--yellow"></i
-                  ><i class="dot dot--green"></i>
-                </span>
-                <span class="project__url">web-platform.app</span>
-              </div>
-              <div class="project__body">
-                <div class="project__thumb" aria-hidden="true"></div>
-                <h3 class="card__title">Веб-платформа услуг</h3>
-                <p class="card__text">
-                  Многостраничная платформа с каталогом, фильтрацией и интеграцией REST API для
-                  динамических данных.
-                </p>
-                <ul class="tags">
-                  <li class="tag">React.js</li>
-                  <li class="tag">Tailwind</li>
-                  <li class="tag">REST API</li>
-                </ul>
-              </div>
-            </li>
-            <li class="card card--hover project reveal">
-              <div class="window__bar">
-                <span class="dots" aria-hidden="true">
-                  <i class="dot dot--red"></i><i class="dot dot--yellow"></i
-                  ><i class="dot dot--green"></i>
-                </span>
-                <span class="project__url">studio-redesign.dev</span>
-              </div>
-              <div class="project__body">
-                <div class="project__thumb" aria-hidden="true"></div>
-                <h3 class="card__title">Редизайн корпоративного сайта</h3>
-                <p class="card__text">
-                  Полное обновление интерфейса и вёрстки: новая сетка, типографика и рост показателей
-                  Lighthouse.
-                </p>
-                <ul class="tags">
-                  <li class="tag">Редизайн</li>
-                  <li class="tag">CSS3 / BEM</li>
-                  <li class="tag">Vercel</li>
-                </ul>
-              </div>
-            </li>
+  <div class="container">
+    <header class="section__head reveal">
+      <p class="eyebrow">// Портфолио</p>
+      <h2 class="section__title">Проекты и кейсы</h2>
+    </header>
+    <ul class="grid grid--3">
+      <li class="card card--hover project reveal">
+        <div class="window__bar">
+          <span class="dots" aria-hidden="true">
+            <i class="dot dot--red"></i><i class="dot dot--yellow"></i><i class="dot dot--green"></i>
+          </span>
+          <span class="project__url">qaragat-hotel.site</span>
+        </div>
+        <div class="project__body">
+          <div class="project__thumb">
+            <img src="/src/Qaragat.webp" alt="Redesign сайта Qaragat Hotel" />
+          </div>
+          <h3 class="card__title">Redesign сайта Qaragat Hotel</h3>
+          <p class="card__text">
+            Сайт отеля с презентацией номеров, галереей и формой бронирования. Акцент на скорость загрузки и мобильную версию.
+          </p>
+          <ul class="tags">
+            <li class="tag">HTML5</li>
+            <li class="tag">CSS3</li>
+            <li class="tag">JavaScript</li>
           </ul>
         </div>
-      </section>
+      </li>
+      <li class="card card--hover project reveal">
+        <div class="window__bar">
+          <span class="dots" aria-hidden="true">
+            <i class="dot dot--red"></i><i class="dot dot--yellow"></i><i class="dot dot--green"></i>
+          </span>
+          <span class="project__url">web-platform.app</span>
+        </div>
+        <div class="project__body">
+          <div class="project__thumb">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Веб-платформа услуг" />
+          </div>
+          <h3 class="card__title">Веб-платформа услуг</h3>
+          <p class="card__text">
+            Многостраничная платформа с каталогом, фильтрацией и интеграцией REST API для динамических данных.
+          </p>
+          <ul class="tags">
+            <li class="tag">React.js</li>
+            <li class="tag">Tailwind</li>
+            <li class="tag">REST API</li>
+          </ul>
+        </div>
+      </li>
+      <li class="card card--hover project reveal">
+        <div class="window__bar">
+          <span class="dots" aria-hidden="true">
+            <i class="dot dot--red"></i><i class="dot dot--yellow"></i><i class="dot dot--green"></i>
+          </span>
+          <span class="project__url">studio-redesign.dev</span>
+        </div>
+        <div class="project__body">
+          <div class="project__thumb">
+            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Редизайн корпоративного сайта" />
+          </div>
+          <h3 class="card__title">Редизайн корпоративного сайта</h3>
+          <p class="card__text">
+            Полное обновление интерфейса и вёрстки: новая сетка, типографика и рост показателей Lighthouse.
+          </p>
+          <ul class="tags">
+            <li class="tag">Редизайн</li>
+            <li class="tag">CSS3 / BEM</li>
+            <li class="tag">Vercel</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
 
       <!-- ===== CONTACTS ===== -->
       <section class="section" id="contacts">

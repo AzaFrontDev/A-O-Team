@@ -1,7 +1,6 @@
 .hero {
-  padding-top: 112px;
+  padding-top: 132px; /* Добавили воздух под шапку для мобилок */
 }
-
 .hero__grid {
   display: grid;
   gap: 44px;
@@ -31,6 +30,7 @@
 }
 
 .hero .eyebrow {
+  margin-top: 28px !important; 
   color: var(--violet);
   border-color: rgba(105, 24, 217, 0.35);
   background: rgba(105, 24, 217, 0.08);

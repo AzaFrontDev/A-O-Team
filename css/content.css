@@ -72,12 +72,23 @@
   padding: 24px;
 }
 
+/* Контейнер превьюшки */
 .project__thumb {
-  height: 112px;
+  height: 160px; /* Сделали нормальную высоту под скриншот сайта */
   margin-bottom: 20px;
   border: 1px solid var(--border);
   border-radius: 12px;
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.28), rgba(168, 85, 247, 0.18));
+  overflow: hidden; /* Обрезаем всё, что вываливается за скругления */
+}
+
+/* Автоматическая подгонка любой картинки без искажения пропорций */
+.project__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center; /* Показываем шапку сайта, а не середину */
+  display: block;
 }
 
 .tags {
@@ -95,7 +106,6 @@
   font-size: 0.68rem;
   color: var(--violet);
 }
-
 /* ---------- Contacts ---------- */
 .contacts {
   display: grid;

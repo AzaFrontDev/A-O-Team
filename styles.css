@@ -45,6 +45,8 @@ html {
 body {
   margin: 0;
   min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
@@ -52,6 +54,10 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1;
 }
 
 h1,
@@ -521,6 +527,7 @@ textarea.input {
 .footer {
   border-top: 1px solid var(--border);
   padding-block: 32px;
+  margin-top: auto;
 }
 
 .footer__inner {
@@ -917,4 +924,24 @@ textarea.input {
   border-radius: 999px;
   border: 1px solid rgba(168, 85, 247, 0.35);
   background: rgba(168, 85, 247, 0.08);
+}
+
+@media (min-width: 480px) {
+  .header__cta {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: block;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none !important;
+  }
 }

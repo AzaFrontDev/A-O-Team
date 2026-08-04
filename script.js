@@ -4,16 +4,17 @@
 (function () {
   "use strict";
 
-  /* ---------- 1. Fixed header background on scroll ---------- */
-  const header = document.getElementById("header");
+/* ---------- 1. Fixed header background on scroll ---------- */
+const header = document.getElementById("header");
 
-  const onScroll = () => {
-    header.classList.toggle("is-scrolled", window.scrollY > 24);
-  };
+const onScroll = () => {
+  header.classList.toggle("is-scrolled", window.scrollY > 24);
+};
 
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
+// Не вызывай синхронно прямо при старте! Дай браузеру сначала нарисовать DOM.
+requestAnimationFrame(onScroll);
 
+window.addEventListener("scroll", onScroll, { passive: true });
   /* ---------- 2. Mobile burger menu ---------- */
   const burger = document.getElementById("burger");
   const mobileMenu = document.getElementById("mobile-menu");

@@ -16,14 +16,22 @@
       content="Превращаем макеты и идеи в чистый, оптимизированный и адаптивный код."
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="./src/Logo.webp" type="image/x-icon" />
+    <link rel="preload" href="./src/Logo.webp" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+  />
+</noscript>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="aurora" aria-hidden="true"></div>
@@ -40,7 +48,6 @@
             <li><a class="nav__link" href="#about">О нас</a></li>
             <li><a class="nav__link" href="#services">Услуги</a></li>
             <li><a class="nav__link" href="#stack">Стек</a></li>
-            <li><a class="nav__link" href="#portfolio">Портфолио</a></li>
             <li><a class="nav__link" href="#contacts">Контакты</a></li>
           </ul>
         </nav>
@@ -224,7 +231,6 @@
 
       <!-- ===== STACK ===== -->
       <section class="section" id="stack">
-      <section class="section" id="stack">
         <div class="container">
           <header class="section__head reveal">
             <p class="eyebrow">// Стек</p>
@@ -242,84 +248,6 @@
           </ul>
         </div>
       </section>
-
-      <!-- ===== PORTFOLIO ===== -->
-      <section class="section" id="portfolio">
-  <div class="container">
-    <header class="section__head reveal">
-      <p class="eyebrow">// Портфолио</p>
-      <h2 class="section__title">Проекты и кейсы</h2>
-    </header>
-    <ul class="grid grid--3">
-      <li class="card card--hover project reveal">
-        <div class="window__bar">
-          <span class="dots" aria-hidden="true">
-            <i class="dot dot--red"></i><i class="dot dot--yellow"></i><i class="dot dot--green"></i>
-          </span>
-          <span class="project__url">qaragat-hotel.site</span>
-        </div>
-        <div class="project__body">
-          <div class="project__thumb">
-            <img src="/src/Qaragat.webp" alt="Redesign сайта Qaragat Hotel" />
-          </div>
-          <h3 class="card__title">Redesign сайта Qaragat Hotel</h3>
-          <p class="card__text">
-            Сайт отеля с презентацией номеров, галереей и формой бронирования. Акцент на скорость загрузки и мобильную версию.
-          </p>
-          <ul class="tags">
-            <li class="tag">HTML5</li>
-            <li class="tag">CSS3</li>
-            <li class="tag">JavaScript</li>
-          </ul>
-        </div>
-      </li>
-      <li class="card card--hover project reveal">
-        <div class="window__bar">
-          <span class="dots" aria-hidden="true">
-            <i class="dot dot--red"></i><i class="dot dot--yellow"></i><i class="dot dot--green"></i>
-          </span>
-          <span class="project__url">web-platform.app</span>
-        </div>
-        <div class="project__body">
-          <div class="project__thumb">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Веб-платформа услуг" />
-          </div>
-          <h3 class="card__title">Веб-платформа услуг</h3>
-          <p class="card__text">
-            Многостраничная платформа с каталогом, фильтрацией и интеграцией REST API для динамических данных.
-          </p>
-          <ul class="tags">
-            <li class="tag">React.js</li>
-            <li class="tag">Tailwind</li>
-            <li class="tag">REST API</li>
-          </ul>
-        </div>
-      </li>
-      <li class="card card--hover project reveal">
-        <div class="window__bar">
-          <span class="dots" aria-hidden="true">
-            <i class="dot dot--red"></i><i class="dot dot--yellow"></i><i class="dot dot--green"></i>
-          </span>
-          <span class="project__url">studio-redesign.dev</span>
-        </div>
-        <div class="project__body">
-          <div class="project__thumb">
-            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Редизайн корпоративного сайта" />
-          </div>
-          <h3 class="card__title">Редизайн корпоративного сайта</h3>
-          <p class="card__text">
-            Полное обновление интерфейса и вёрстки: новая сетка, типографика и рост показателей Lighthouse.
-          </p>
-          <ul class="tags">
-            <li class="tag">Редизайн</li>
-            <li class="tag">CSS3 / BEM</li>
-            <li class="tag">Vercel</li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
 
       <!-- ===== CONTACTS ===== -->
       <section class="section" id="contacts">
@@ -373,35 +301,35 @@
       <label class="form__service-card">
         <input type="radio" name="service" value="Лендинг" required>
         <span class="form__service-title">Лендинг</span>
-        <span class="form__service-price">от 8 000 KGS</span>
+        <span class="form__service-price">от 8 000 RUB</span>
       </label>
     </li>
     <li>
       <label class="form__service-card">
         <input type="radio" name="service" value="Сайт-визитка">
         <span class="form__service-title">Сайт-визитка</span>
-        <span class="form__service-price">от 5 000 KGS</span>
+        <span class="form__service-price">от 5 000 RUB</span>
       </label>
     </li>
     <li>
       <label class="form__service-card">
         <input type="radio" name="service" value="Многостраничник">
         <span class="form__service-title">Многостраничник</span>
-        <span class="form__service-price">от 20 000 KGS</span>
+        <span class="form__service-price">от 20 000 RUB</span>
       </label>
     </li>
     <li>
       <label class="form__service-card">
         <input type="radio" name="service" value="Редизайн">
         <span class="form__service-title">Редизайн</span>
-        <span class="form__service-price">от 7 000 KGS</span>
+        <span class="form__service-price">от 7 000 RUB</span>
       </label>
     </li>
     <li>
       <label class="form__service-card">
         <input type="radio" name="service" value="Доработка / Re-work">
         <span class="form__service-title">Доработка / Re-work</span>
-        <span class="form__service-price">от 2 000 KGS</span>
+        <span class="form__service-price">от 2 000 RUB</span>
       </label>
     </li>
   </ul>

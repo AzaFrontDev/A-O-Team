@@ -40,7 +40,7 @@ app.post("/api/contact", async (req, res) => {
         case "Редизайн":
           return "🟡 [СТАНДАРТ]";
         case "Сайт-визитка":
-        case "Доработка / Re-work":
+        case "Доработка":
           return "🟢 [БЫСТРАЯ ЗАДАЧА]";
         default:
           return "🟡 [СТАНДАРТ]";

@@ -18,10 +18,12 @@ function escapeHtml(str = "") {
 
 app.post("/api/contact", async (req, res) => {
   try {
-    const { name, contact, service, message } = req.body || {};
+    // 1. Вытягиваем whatsapp и email вместо contact
+    const { name, whatsapp, email, service, message } = req.body || {};
 
-    if (!name || !contact || !service || !message) {
-      return res.status(400).json({ error: "Пожалуйста, заполните все поля." });
+    // 2. Валидация: email не проверяем на пустоту, он опционален
+    if (!name || !whatsapp || !service || !message) {
+      return res.status(400).json({ error: "Пожалуйста, заполните все обязательные поля." });
     }
 
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
@@ -41,19 +43,21 @@ app.post("/api/contact", async (req, res) => {
           return "🟡 [СТАНДАРТ]";
         case "Сайт-визитка":
         case "Доработка":
+        case "Реворк":
           return "🟢 [БЫСТРАЯ ЗАДАЧА]";
         default:
           return "🟡 [СТАНДАРТ]";
       }
     })();
 
-    // Формируем итоговый текст сообщения
+    // 3. Формируем итоговый текст сообщения с новыми переменными
     const text = 
 `🚀 <b>Новая заявка с сайта AO Team!</b>
 ${priorityBadge}
 
 👤 <b>Имя:</b> ${escapeHtml(name)}
-💬 <b>Связь:</b> ${escapeHtml(contact)}
+📱 <b>WhatsApp:</b> ${escapeHtml(whatsapp)}
+📧 <b>Email:</b> ${escapeHtml(email || "Не указан")}
 🛠 <b>Услуга:</b> ${escapeHtml(serviceTrimmed)}
 📝 <b>Описание проекта:</b>
 ${escapeHtml(message)}`;

@@ -66,99 +66,102 @@ window.addEventListener("scroll", onScroll, { passive: true });
   }
 
 /* ---------- 4. Contact form ---------- */
- const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
+const form = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
 
-  const showStatus = (message, isError = false) => {
-    status.classList.toggle("is-error", isError);
-    status.textContent = message;
-  };
+const showStatus = (message, isError = false) => {
+  status.classList.toggle("is-error", isError);
+  status.textContent = message;
+};
 
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-      let valid = true;
+    let valid = true;
 
-      // 1. Проверяем текстовые поля
-      const textFields = ["name", "contact", "message"].map((id) => document.getElementById(id));
-      textFields.forEach((field) => {
-        const empty = !field || !field.value || field.value.trim() === "";
-        if (field) field.classList.toggle("is-invalid", empty);
-        if (empty) valid = false;
+    // 1. Проверяем обязательные текстовые поля (заменили contact на whatsapp)
+    const requiredFields = ["name", "whatsapp", "message"].map((id) => document.getElementById(id));
+    requiredFields.forEach((field) => {
+      const empty = !field || !field.value || field.value.trim() === "";
+      if (field) field.classList.toggle("is-invalid", empty);
+      if (empty) valid = false;
+    });
+
+    // 2. Проверяем выбор услуги (радиокнопки)
+    const serviceRadio = document.querySelector('input[name="service"]:checked');
+    const serviceValue = serviceRadio ? serviceRadio.value : null;
+
+    if (!serviceValue) {
+      valid = false;
+    }
+
+    if (!valid) {
+      showStatus("Пожалуйста, заполните все обязательные поля и выберите услугу.", true);
+      return;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn?.textContent || "Отправить";
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Отправка...";
+    }
+
+    // 3. Собираем данные
+    const name = document.getElementById("name")?.value.trim();
+    const whatsapp = document.getElementById("whatsapp")?.value.trim();
+    // Email не обязательный, если пустой — ставим заглушку
+    const email = document.getElementById("email")?.value.trim() || "Не указан";
+    const message = document.getElementById("message")?.value.trim();
+
+    const payload = {
+      name,
+      whatsapp,
+      email,
+      service: serviceValue,
+      message,
+    };
+
+    try {
+      const apiUrl = window.location.hostname === "localhost"
+        ? "/api/contact"
+        : "https://a-o-team.onrender.com/api/contact";
+
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
-      // 2. Проверяем выбор услуги (радиокнопки)
-      const serviceRadio = document.querySelector('input[name="service"]:checked');
-      const serviceValue = serviceRadio ? serviceRadio.value : null;
-
-      if (!serviceValue) {
-        valid = false;
-        // Опционально: можно добавить класс ошибки на ul.form__services-grid
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || "API error");
       }
 
-      if (!valid) {
-        showStatus("Пожалуйста, заполните все поля и выберите услугу.", true);
-        return;
-      }
+      showStatus("✓ Заявка отправлена — свяжемся с вами в течение 24 часов.");
+      form.reset();
 
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn?.textContent || "Отправить";
+      window.setTimeout(() => {
+        showStatus("");
+      }, 6000);
+    } catch (error) {
+      console.error(error);
+      showStatus("❌ Ошибка отправки. Напишите нам напрямую в WhatsApp.", true);
+    } finally {
       if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Отправка...";
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
       }
+    }
+  });
 
-      const name = document.getElementById("name")?.value.trim();
-      const contact = document.getElementById("contact")?.value.trim();
-      const message = document.getElementById("message")?.value.trim();
-
-      const payload = {
-        name,
-        contact,
-        service: serviceValue, // Закидываем найденное значение
-        message,
-      };
-
-      try {
-        const apiUrl = window.location.hostname === "localhost"
-          ? "/api/contact"
-          : "https://a-o-team.onrender.com/api/contact";
-
-        const response = await fetch(apiUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-
-        const data = await response.json();
-        if (!response.ok) {
-          throw new Error(data.error || "Telegram API error");
-        }
-
-        showStatus("✓ Заявка отправлена — свяжемся с вами в ближайшее время.");
-        form.reset();
-
-        window.setTimeout(() => {
-          showStatus("");
-        }, 6000);
-      } catch (error) {
-        console.error(error);
-        showStatus("❌ Ошибка отправки. Напишите нам напрямую в Telegram.", true);
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
-        }
-      }
-    });
-
-    // Сброс красных рамок при вводе
-    form.querySelectorAll(".input, input[type='radio']").forEach((input) => {
-      input.addEventListener("input", () => input.classList.remove("is-invalid"));
-      input.addEventListener("change", () => input.classList.remove("is-invalid"));
-    });
-  }
+  // Сброс красных рамок при вводе
+  form.querySelectorAll(".input, input[type='radio']").forEach((input) => {
+    input.addEventListener("input", () => input.classList.remove("is-invalid"));
+    input.addEventListener("change", () => input.classList.remove("is-invalid"));
+  });
+}
   /* ---------- 5. Footer year ---------- */
   const yearEl = document.querySelector("[data-year]");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());

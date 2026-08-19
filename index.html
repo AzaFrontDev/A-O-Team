@@ -329,34 +329,38 @@
               </li>
             </ul>
           </div>
-<form class="card form reveal" id="contact-form" novalidate>
-           <div class="form__field">
-             <div class="form__field">
-  <label class="form__label" for="name">Имя</label>
-  <input class="input" id="name" name="name" required placeholder="Как к вам обращаться" />
-</div>
-  <label class="form__label" for="whatsapp">WhatsApp (Обязательно)</label>
-  <input
-    class="input"
-    id="whatsapp"
-    name="whatsapp"
-    type="tel"
-    required
-    placeholder="+996 555 123 456"
-    pattern="^\+996[0-9]{9}$"
-  />
-</div>
+  <form class="card form reveal" id="contact-form" novalidate>
+  
+  <div class="form__field">
+    <label class="form__label" for="name">Имя</label>
+    <input class="input" id="name" name="name" required placeholder="Как к вам обращаться" />
+  </div>
 
-<div class="form__field">
-  <label class="form__label" for="email">Email (Необязательно)</label>
-  <input
-    class="input"
-    id="email"
-    name="email"
-    type="email"
-    placeholder="mail@example.com"
-  />
-</div>
+  <div class="form__field">
+    <label class="form__label" for="whatsapp">WhatsApp (Обязательно)</label>
+    <input
+      class="input"
+      id="whatsapp"
+      name="whatsapp"
+      type="tel"
+      required
+      placeholder="+996 555 123 456"
+      pattern="^\+996[0-9]{9}$"
+    />
+  </div>
+
+  <div class="form__field">
+    <label class="form__label" for="email">Email (Необязательно)</label>
+    <input
+      class="input"
+      id="email"
+      name="email"
+      type="email"
+      placeholder="mail@example.com"
+    />
+  </div>
+
+  <!-- дальше идут радиокнопки услуг и textarea -->
             
             <div class="form__field">
   <label class="form__label">Что вас интересует?</label>

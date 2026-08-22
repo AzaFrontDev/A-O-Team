@@ -8,6 +8,7 @@
 @import url("layout.css");
 @import url("logo.css");
 @import url("cards.css");
+@import url("portfolio.css");
 
 :root {
   --bg: #0b0f19;

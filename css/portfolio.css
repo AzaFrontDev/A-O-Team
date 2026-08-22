@@ -1,0 +1,107 @@
+/* --- Общие стили секции --- */
+.container--portfolio {
+  padding-left: 20px; /* Отступы слева */
+  padding-right: 20px; /* Отступы справа */
+}
+
+.portfolio__slider {
+  overflow: hidden; /* Обязательно: скрываем все, что не влезает */
+  width: 100%;
+  padding: 40px 0; 
+  position: relative;
+}
+
+.portfolio__list {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: max-content; 
+}
+
+
+.portfolio__item {
+  position: relative;
+  width: 400px; 
+  height: 250px; 
+  border-radius: 12px;
+  overflow: hidden;
+  background: #12111a; 
+  border: 1px solid rgba(255, 255, 255, 0.08); 
+  flex-shrink: 0; 
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.portfolio__item:hover {
+  transform: translateY(-5px); /* Легкий подъем при наведении */
+  border-color: rgba(147, 51, 234, 0.5); /* Фиолетовый акцент при наведении */
+}
+
+/* --- Картинка --- */
+.portfolio__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.portfolio__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Заполняем пространство */
+  transition: transform 0.3s ease;
+}
+
+/* --- Эффект наведения на картинку --- */
+.portfolio__item:hover .portfolio__image {
+  transform: scale(1.03); /* Легкий зум картинки */
+}
+
+/* --- Инфо-блок (Текст) поверх картинки --- */
+.portfolio__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent); /* Градиент для читаемости текста */
+  
+  /* ЭФФЕКТ: Слабо видимый по умолчанию */
+  opacity: 0.3; 
+  transform: translateY(10px); /* Легкий сдвиг вниз */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* --- ЭФФЕКТ: Полностью видимый при наведении --- */
+.portfolio__item:hover .portfolio__info {
+  opacity: 1;
+  transform: translateY(0); /* Возвращаем на место */
+}
+
+/* --- Стили текста внутри карточки --- */
+.portfolio__card-title {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.portfolio__card-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.portfolio__tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(147, 51, 234, 0.15); /* Прозрачный фиолетовый фон */
+  color: rgb(168, 85, 247); /* Яркий фиолетовый текст */
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

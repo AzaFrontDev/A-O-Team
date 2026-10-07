@@ -18,6 +18,9 @@
     let ready = false;
     let rx, ry, ty;
 
+    const maxAngle = Number(el.dataset.tiltMax) || MAX_ANGLE;
+    const lift = el.dataset.tiltLift !== undefined ? Number(el.dataset.tiltLift) : LIFT;
+
     // Инициализация при первом наведении, когда reveal-анимация уже отработала
     const init = () => {
       if (ready) return;
@@ -36,18 +39,25 @@
 
     el.addEventListener("pointerenter", () => {
       init();
-      ty(LIFT);
+      if (!el.classList.contains("is-dragging")) {
+        ty(lift);
+      }
     });
 
     el.addEventListener(
       "pointermove",
       (e) => {
         if (!ready) return;
+        if (el.classList.contains("is-dragging")) {
+          rx(0);
+          ry(0);
+          return;
+        }
         const rect = el.getBoundingClientRect();
         const px = (e.clientX - rect.left) / rect.width - 0.5; // -0.5…0.5
         const py = (e.clientY - rect.top) / rect.height - 0.5;
-        ry(px * 2 * MAX_ANGLE);
-        rx(-py * 2 * MAX_ANGLE);
+        ry(px * 2 * maxAngle);
+        rx(-py * 2 * maxAngle);
       },
       { passive: true }
     );

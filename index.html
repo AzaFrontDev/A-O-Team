@@ -156,7 +156,10 @@
         </header>
         <ul class="grid grid--3">
           <li class="card card--hover card--pad reveal">
-            <span class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+            <span class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m16 18 6-6-6-6M8 6l-6 6 6 6" />
+              </svg></span>
             <h3 class="card__title">Контроль архитектуры</h3>
             <p class="card__text">
               Чистый, читаемый код без мусора и лишних зависимостей. Понятная структура, которую
@@ -164,7 +167,10 @@
             </p>
           </li>
           <li class="card card--hover card--pad reveal">
-            <span class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 10-12h-8z"/></svg></span>
+            <span class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2 3 14h8l-1 8 10-12h-8z" />
+              </svg></span>
             <h3 class="card__title">Оптимизация скорости</h3>
             <p class="card__text">
               Высокие показатели Lighthouse: быстрая загрузка, оптимизированные изображения,
@@ -172,7 +178,11 @@
             </p>
           </li>
           <li class="card card--hover card--pad reveal">
-            <span class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></span>
+            <span class="icon-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <path d="M3 9h18M9 21V9" />
+              </svg></span>
             <h3 class="card__title">Pixel Perfect &amp; Mobile First</h3>
             <p class="card__text">
               Идеальное соответствие макету и плавная адаптивность от 320px до 1920px+ на любых
@@ -184,7 +194,7 @@
     </section>
 
     <section class="section" id="portfolio">
-      <div class="container container--portfolio">
+      <div class="container">
         <header class="section__head reveal">
           <p class="eyebrow">// Портфолио</p>
           <h2 class="section__title">Наши работы</h2>
@@ -194,96 +204,174 @@
           </p>
         </header>
 
-        <div class="portfolio__slider" id="portfolioSlider">
-          <ul class="portfolio__list" id="portfolioTrack">
+        <div class="portfolio__grid">
 
-            <li class="portfolio__item">
-              <a class="portfolio__link" href="https://reign-pc-redesign-by-ao-team.vercel.app/" target="_blank"
-                rel="noopener noreferrer">
-                <div class="portfolio__browser-bar"><span class="dots"><i></i><i></i><i></i></span></div>
-                <img class="portfolio__image" src="/src/portfolio1.webp" alt="ReignPC — скриншот интернет-магазина" loading="lazy" />
-                <div class="portfolio__info">
-                  <h3 class="portfolio__card-title">ReignPC</h3>
-                  <p class="portfolio__card-text">Полноценные прямые онлайн-продажи готовых ПК, кастомных систем и
-                    комплектующих.</p>
-                  <span class="portfolio__tag">Интернет-магазин / E-commerce с конфигуратором ПК.</span>
-                  <div class="portfolio__chips"><span class="portfolio__chip">React</span><span class="portfolio__chip">HTML/CSS</span></div>
-                </div>
-              </a>
-            </li>
-            <li class="portfolio__item">
-              <a class="portfolio__link" href="https://itline-redesign-by-ao-team.vercel.app/" target="_blank"
-                rel="noopener noreferrer">
-                <div class="portfolio__browser-bar"><span class="dots"><i></i><i></i><i></i></span></div>
-                <img class="portfolio__image" src="/src/portfolio2.webp" alt="ITLine — скриншот промо-лендинга" loading="lazy" />
-                <div class="portfolio__info">
-                  <h3 class="portfolio__card-title">ITLine</h3>
-                  <p class="portfolio__card-text">Лидогенерация для локального магазина/мастерской, быстрый прогрев
-                    клиента через готовые сборки и индивидуальный расчет.</p>
-                  <span class="portfolio__tag">Промо-лендинг / Витрина кастомной сборки ПК и техники.</span>
-                  <div class="portfolio__chips"><span class="portfolio__chip">JS</span><span class="portfolio__chip">GSAP</span></div>
-                </div>
-              </a>
-            </li>
-            <li class="portfolio__item">
-              <a class="portfolio__link" href="https://qaragat-redesign-by-ao-team.vercel.app/" target="_blank"
-                rel="noopener noreferrer">
-                <div class="portfolio__browser-bar"><span class="dots"><i></i><i></i><i></i></span></div>
-                <img class="portfolio__image" src="/src/portfolio3.webp" alt="QaragatHotel — скриншот сайта отеля" loading="lazy" />
-                <div class="portfolio__info">
-                  <h3 class="portfolio__card-title">QaragatHotel</h3>
-                  <p class="portfolio__card-text">Имиджевая презентация гостиницы, демонстрация номеров, залов и
-                    инфраструктуры с прямой конверсией в бронь номеров или аренду помещений.</p>
-                  <span class="portfolio__tag">Многостраничный сайт отеля / HoReCa</span>
-                  <div class="portfolio__chips"><span class="portfolio__chip">Multipage</span><span class="portfolio__chip">Animations</span></div>
-                </div>
-              </a>
-            </li>
+          <!-- 1. Флагман: PeptideLabs (60%) -->
+          <article class="card portfolio-card portfolio-card--wide reveal" data-tilt data-tilt-max="3.5"
+            data-tilt-lift="-4">
+            <div class="portfolio-card__media">
+              <img class="portfolio-card__img" src="./src/peptidelabs.png"
+                alt="PeptideLabs — интерфейс интернет-магазина" loading="lazy" />
+              <div class="portfolio-card__overlay" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__header">
+                <span class="portfolio-card__tag">E-Commerce / Интернет-магазин</span>
+                <span class="portfolio-card__badge">Флагман</span>
+              </div>
+              <h3 class="portfolio-card__title">PeptideLabs</h3>
+              <p class="portfolio-card__text">
+                Разработка e-commerce платформы с нуля: интернет-магазин биодобавок и пептидов в чистой лабораторной
+                стилистике. Спроектировали динамический каталог по задачам и форматам, разработали сложный конфигуратор
+                расчёта дозировок со строгой верификацией данных. Чистая архитектура, высокая скорость загрузки и
+                стабильная интеграция заказов через Telegram API
+              </p>
+              <div class="portfolio-card__footer">
+                <a class="btn btn--primary btn--sm portfolio-card__cta" href="https://peptidelabs.co/" target="_blank"
+                  rel="noopener noreferrer">
+                  <span>Смотреть проект</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
 
-            <li class="portfolio__item portfolio__item--clone">
-              <a class="portfolio__link" href="https://reign-pc-redesign-by-ao-team.vercel.app/" target="_blank"
-                rel="noopener noreferrer">
-                <div class="portfolio__browser-bar"><span class="dots"><i></i><i></i><i></i></span></div>
-                <img class="portfolio__image" src="/src/portfolio1.webp" alt="ReignPC — скриншот интернет-магазина" loading="lazy" />
-                <div class="portfolio__info">
-                  <h3 class="portfolio__card-title">ReignPC</h3>
-                  <p class="portfolio__card-text">Полноценные прямые онлайн-продажи готовых ПК, кастомных систем и
-                    комплектующих.</p>
-                  <span class="portfolio__tag">Интернет-магазин / E-commerce с конфигуратором ПК.</span>
-                  <div class="portfolio__chips"><span class="portfolio__chip">React</span><span class="portfolio__chip">HTML/CSS</span></div>
-                </div>
-              </a>
-            </li>
-            <li class="portfolio__item portfolio__item--clone">
-              <a class="portfolio__link" href="https://itline-redesign-by-ao-team.vercel.app/" target="_blank"
-                rel="noopener noreferrer">
-                <div class="portfolio__browser-bar"><span class="dots"><i></i><i></i><i></i></span></div>
-                <img class="portfolio__image" src="/src/portfolio2.webp" alt="ITLine — скриншот промо-лендинга" loading="lazy" />
-                <div class="portfolio__info">
-                  <h3 class="portfolio__card-title">ITLine</h3>
-                  <p class="portfolio__card-text">Лидогенерация для локального магазина/мастерской, быстрый прогрев
-                    клиента через готовые сборки и индивидуальный расчет.</p>
-                  <span class="portfolio__tag">Промо-лендинг / Витрина кастомной сборки ПК и техники.</span>
-                  <div class="portfolio__chips"><span class="portfolio__chip">JS</span><span class="portfolio__chip">GSAP</span></div>
-                </div>
-              </a>
-            </li>
-            <li class="portfolio__item portfolio__item--clone">
-              <a class="portfolio__link" href="https://qaragat-redesign-by-ao-team.vercel.app/" target="_blank"
-                rel="noopener noreferrer">
-                <div class="portfolio__browser-bar"><span class="dots"><i></i><i></i><i></i></span></div>
-                <img class="portfolio__image" src="/src/portfolio3.webp" alt="QaragatHotel — скриншот сайта отеля" loading="lazy" />
-                <div class="portfolio__info">
-                  <h3 class="portfolio__card-title">QaragatHotel</h3>
-                  <p class="portfolio__card-text">Имиджевая презентация гостиницы, демонстрация номеров, залов и
-                    инфраструктуры с прямой конверсией в бронь номеров или аренду помещений.</p>
-                  <span class="portfolio__tag">Многостраничный сайт отеля / HoReCa</span>
-                  <div class="portfolio__chips"><span class="portfolio__chip">Multipage</span><span class="portfolio__chip">Animations</span></div>
-                </div>
-              </a>
-            </li>
+          <!-- 2. ITLine (40%) -->
+          <article class="card portfolio-card portfolio-card--narrow reveal" data-tilt data-tilt-max="3.5"
+            data-tilt-lift="-4">
+            <div class="portfolio-card__media">
+              <img class="portfolio-card__img" src="./src/portfolio2.webp" alt="ITLine — скриншот промо-лендинга"
+                loading="lazy" />
+              <div class="portfolio-card__overlay" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__header">
+                <span class="portfolio-card__tag">Промо-лендинг / Витрина</span>
+              </div>
+              <h3 class="portfolio-card__title">ITLine</h3>
+              <p class="portfolio-card__text">
+                Лидогенерация для мастерской и магазина: быстрый прогрев клиента через готовые сборки ПК и интерактивный
+                расчет стоимости.
+              </p>
+              <div class="portfolio-card__chips">
+                <span class="portfolio-card__chip">JS</span>
+                <span class="portfolio-card__chip">GSAP</span>
+              </div>
+              <div class="portfolio-card__footer">
+                <a class="btn btn--ghost btn--sm portfolio-card__cta"
+                  href="https://itline-redesign-by-ao-team.vercel.app/" target="_blank" rel="noopener noreferrer">
+                  <span>Смотреть проект</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
 
-          </ul>
+          <!-- 3. ReignPC (40%) -->
+          <article class="card portfolio-card portfolio-card--narrow reveal" data-tilt data-tilt-max="3.5"
+            data-tilt-lift="-4">
+            <div class="portfolio-card__media">
+              <img class="portfolio-card__img" src="./src/portfolio1.webp" alt="ReignPC — скриншот интернет-магазина"
+                loading="lazy" />
+              <div class="portfolio-card__overlay" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__header">
+                <span class="portfolio-card__tag">E-Commerce / Конфигуратор</span>
+              </div>
+              <h3 class="portfolio-card__title">ReignPC</h3>
+              <p class="portfolio-card__text">
+                Полноценные онлайн-продажи готовых ПК, кастомных систем и комплектующих с интерактивной сборкой в
+                реальном времени.
+              </p>
+              <div class="portfolio-card__chips">
+                <span class="portfolio-card__chip">React</span>
+                <span class="portfolio-card__chip">HTML/CSS</span>
+              </div>
+              <div class="portfolio-card__footer">
+                <a class="btn btn--ghost btn--sm portfolio-card__cta"
+                  href="https://reign-pc-redesign-by-ao-team.vercel.app/" target="_blank" rel="noopener noreferrer">
+                  <span>Смотреть проект</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. QaragatHotel — Интерактивный редизайн До / После (60%) -->
+          <article class="card portfolio-card portfolio-card--wide portfolio-card--ba reveal" data-tilt
+            data-tilt-max="3.5" data-tilt-lift="-4">
+            <div class="portfolio-card__media portfolio-card__media--ba">
+              <!-- Слайдер До / После -->
+              <div class="ba-slider" data-ba-slider style="--ba-pos: 50%;">
+                <div class="ba-slider__layers">
+                  <!-- Слой "После" (Редизайн) -->
+                  <div class="ba-slider__layer ba-slider__layer--after">
+                    <img src="./src/portfolio3.webp" alt="QaragatHotel — Новый дизайн после редизайна" loading="lazy" />
+                    <span class="ba-badge ba-badge--after">После · Редизайн</span>
+                  </div>
+                  <!-- Слой "До" (Оригинал / Старый сайт) -->
+                  <div class="ba-slider__layer ba-slider__layer--before">
+                    <img src="./src/qaragat-orig.png" alt="QaragatHotel — Исходный сайт до редизайна" loading="lazy" />
+                    <span class="ba-badge ba-badge--before">До · Исходный сайт</span>
+                  </div>
+                  <!-- Интерактивная шторка-разделитель -->
+                  <div class="ba-slider__handle" role="slider" aria-label="Сравнение сайта отеля до и после редизайна"
+                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0">
+                    <div class="ba-slider__line"></div>
+                    <div class="ba-slider__thumb" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                      </svg>
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="ba-slider__hint" aria-hidden="true">
+                  <span class="ba-slider__hint-icon">↔</span> Потяните шторку для сравнения
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__header">
+                <span class="portfolio-card__tag">HoReCa / Масштабный редизайн</span>
+                <span class="portfolio-card__badge portfolio-card__badge--glow">Интерактив</span>
+              </div>
+              <h3 class="portfolio-card__title">QaragatHotel</h3>
+              <p class="portfolio-card__text">
+                Глубокий редизайн сайта отеля: разработали премиальную подачу номеров, залов и сервисов, оптимизировали
+                сценарии для роста прямой конверсии в бронь.
+              </p>
+              <div class="portfolio-card__chips">
+                <span class="portfolio-card__chip">Multipage</span>
+                <span class="portfolio-card__chip">Animations</span>
+              </div>
+              <div class="portfolio-card__footer">
+                <a class="btn btn--primary btn--sm portfolio-card__cta"
+                  href="https://qaragat-redesign-by-ao-team.vercel.app/" target="_blank" rel="noopener noreferrer">
+                  <span>Смотреть проект</span>
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17L17 7M7 7h10v10" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -304,7 +392,11 @@
             <h3 class="card__title">Доработка</h3>
             <p class="card__text">Точечное устранение технических ошибок, коррекция верстки и подключение дополнительных
               функций.</p>
-            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Срок: 1–2 дня</div>
+            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg> Срок: 1–2 дня</div>
             <div class="service__foot">
               <div class="service__price">от 3 000 RUB</div>
               <a class="service__cta" href="#contacts" data-service="Доработка"
@@ -317,7 +409,11 @@
             <h3 class="card__title">Редизайн</h3>
             <p class="card__text">Визуальное и техническое обновление существующего сайта без потери контента и позиций.
             </p>
-            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Срок: 3–7 дней</div>
+            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg> Срок: 3–7 дней</div>
             <div class="service__foot">
               <div class="service__price">от 5 000 RUB</div>
               <a class="service__cta" href="#contacts" data-service="Редизайн"
@@ -330,7 +426,11 @@
             <h3 class="card__title">Сайты-визитки</h3>
             <p class="card__text">Быстрый старт и презентация бизнеса в сети: компактно, аккуратно и с понятной подачей
               услуг.</p>
-            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Срок: 3–5 дней</div>
+            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg> Срок: 3–5 дней</div>
             <div class="service__foot">
               <div class="service__price">от 8 000 RUB</div>
               <a class="service__cta" href="#contacts" data-service="Сайт-визитка"
@@ -344,7 +444,11 @@
             <h3 class="card__title">Лендинги</h3>
             <p class="card__text">Продающие одностраничные сайты под ключ: структура, дизайн-реализация, анимации и
               формы заявок.</p>
-            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Срок: 5–7 дней</div>
+            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg> Срок: 5–7 дней</div>
             <div class="service__foot">
               <div class="service__price">от 12 000 RUB</div>
               <a class="service__cta" href="#contacts" data-service="Лендинг"
@@ -357,7 +461,11 @@
             <h3 class="card__title">Реворк</h3>
             <p class="card__text">Кардинальная переработка существующего сайта: полное обновление дизайна, улучшение
               структуры без создания проекта с нуля.</p>
-            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Срок: 7–10 дней</div>
+            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg> Срок: 7–10 дней</div>
             <div class="service__foot">
               <div class="service__price">от 15 000 RUB</div>
               <a class="service__cta" href="#contacts" data-service="Реворк"
@@ -370,7 +478,11 @@
             <h3 class="card__title">Многостраничные сайты</h3>
             <p class="card__text">Сложные структуры, каталоги, фильтры и внутренние разделы с продуманной навигацией.
             </p>
-            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Срок: 14–30 дней</div>
+            <div class="service__time"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg> Срок: 14–30 дней</div>
             <div class="service__foot">
               <div class="service__price">от 30 000 RUB</div>
               <a class="service__cta" href="#contacts" data-service="Многостраничник"
@@ -592,6 +704,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="./script.js" defer></script>
+  <script src="./portfolio.js" defer></script>
   <script src="./process.js" defer></script>
   <script src="./counters.js" defer></script>
   <script src="./spotlight.js" defer></script>

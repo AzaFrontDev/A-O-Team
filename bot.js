@@ -36,15 +36,30 @@ app.post("/api/contact", async (req, res) => {
     const serviceTrimmed = String(service).trim();
     const priorityBadge = (() => {
       switch (serviceTrimmed) {
+        case "E-Commerce & Web-сервисы":
+        case "Многостраничные платформы":
         case "Многостраничник":
-          return "🔴 [ВЫСОКИЙ ПРИОРИТЕТ]";
+        case "Саппорт: Премиум":
+          return "🔴 [ВЫСОКИЙ ПРИОРИТЕТ / VIP SLA]";
+        case "Комплексный редизайн":
+        case "Конверсионный лендинг":
         case "Лендинг":
         case "Редизайн":
-          return "🟡 [СТАНДАРТ]";
+        case "Саппорт: Люкс":
+          return "🟡 [СТАНДАРТ / ПОВЫШЕННЫЙ SLA]";
+        case "Промо & Сайты-визитки":
+        case "Доработка & Рефакторинг":
         case "Сайт-визитка":
         case "Доработка":
         case "Реворк":
-          return "🟢 [БЫСТРАЯ ЗАДАЧА]";
+        case "Саппорт: Стандарт":
+        case "Базовый саппорт":
+        case "Активное ведение":
+          return "🟢 [БЫСТРАЯ ЗАДАЧА / САППОРТ]";
+        case "Кастомное решение":
+          return "💎 [КАСТОМНЫЙ SLA]";
+        case "Консультация":
+          return "💬 [КОНСУЛЬТАЦИЯ]";
         default:
           return "🟡 [СТАНДАРТ]";
       }

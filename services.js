@@ -6,7 +6,7 @@
 (function () {
   "use strict";
 
-  const links = document.querySelectorAll(".service__cta[data-service]");
+  const links = document.querySelectorAll("[data-service]");
   const target = document.getElementById("contacts");
   if (!links.length || !target) return;
 

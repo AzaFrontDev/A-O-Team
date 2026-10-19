@@ -5,6 +5,76 @@
    ============================================ */
 (function () {
   "use strict";
+
+  /* ---------- Динамическая синхронизация со сметой Калькулятора ---------- */
+  const initProcessSync = () => {
+    const bar = document.getElementById("process-calc-bar");
+    const typeEl = document.getElementById("process-calc-type");
+    const badgeEl = document.getElementById("process-calc-badge");
+    const daysEl = document.getElementById("process-calc-days");
+    const dateEl = document.getElementById("process-calc-date");
+    const timeTags = document.querySelectorAll("[data-process-time]");
+
+    if (!bar) return;
+
+    let updateTimeout = null;
+
+    const applyCalcData = (data) => {
+      if (!data) return;
+
+      const { typeName, isExpress, totalDaysMin, totalDaysMax, targetDateStr, stepSchedule } = data;
+
+      if (typeEl && typeName) {
+        typeEl.textContent = typeName;
+      }
+
+      if (badgeEl) {
+        badgeEl.textContent = isExpress ? "⚡ Экспресс" : "Стандарт";
+        badgeEl.classList.toggle("is-express", Boolean(isExpress));
+      }
+
+      if (daysEl) {
+        daysEl.textContent = `~${totalDaysMin}–${totalDaysMax} раб. дней`;
+      }
+
+      if (dateEl && targetDateStr) {
+        dateEl.textContent = `к ${targetDateStr}`;
+      }
+
+      if (stepSchedule && timeTags.length) {
+        timeTags.forEach((tag) => {
+          const stepNum = tag.dataset.processTime;
+          const val = stepSchedule[stepNum];
+          if (val) {
+            tag.textContent = val;
+            tag.classList.remove("is-highlighted");
+            void tag.offsetWidth; // перезапуск анимации
+            tag.classList.add("is-highlighted");
+          }
+        });
+      }
+
+      bar.classList.remove("is-updated");
+      void bar.offsetWidth;
+      bar.classList.add("is-updated");
+      clearTimeout(updateTimeout);
+      updateTimeout = setTimeout(() => {
+        bar.classList.remove("is-updated");
+      }, 700);
+    };
+
+    window.addEventListener("ao:calc-update", (e) => {
+      applyCalcData(e.detail);
+    });
+
+    // Если калькулятор уже успел посчитать до инициализации
+    if (window.__AO_CALC_STATE__) {
+      applyCalcData(window.__AO_CALC_STATE__);
+    }
+  };
+
+  initProcessSync();
+
   if (!window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
 

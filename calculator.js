@@ -124,6 +124,81 @@
       .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   };
 
+  const addWorkingDays = (startDate, daysToAdd) => {
+    let current = new Date(startDate);
+    let added = 0;
+    while (added < daysToAdd) {
+      current.setDate(current.getDate() + 1);
+      const day = current.getDay();
+      if (day !== 0 && day !== 6) {
+        added++;
+      }
+    }
+    return current;
+  };
+
+  const formatDateRu = (date) => {
+    const months = [
+      "января", "февраля", "марта", "апреля", "мая", "июня",
+      "июля", "августа", "сентября", "октября", "ноября", "декабря"
+    ];
+    return `${date.getDate()} ${months[date.getMonth()]}`;
+  };
+
+  const getStepSchedule = (typeKey, totalDaysMin, totalDaysMax, isExpress) => {
+    if (typeKey === "fix") {
+      return {
+        1: "День 1 · Старт",
+        2: "День 1 · Аудит",
+        3: "День 1 · План правок",
+        4: "День 1 · Аванс",
+        5: `День 1–${Math.max(2, totalDaysMax)} · Спринт`,
+        6: `День ~${totalDaysMax} · Сдача & Релиз`,
+      };
+    }
+
+    if (totalDaysMax <= 6) {
+      const devEnd = Math.max(3, totalDaysMax - 1);
+      return {
+        1: "День 1 · 15–30 мин",
+        2: "День 1–2 · Концепт",
+        3: "День 2 · Ревью DEMO",
+        4: "День 2–3 · Договор",
+        5: `День 3–${devEnd} · Разработка`,
+        6: `День ~${totalDaysMax} · Сдача & Релиз`,
+      };
+    }
+
+    if (totalDaysMax <= 12) {
+      const demoEnd = isExpress ? 2 : 3;
+      const reviewEnd = isExpress ? 3 : 4;
+      const devStart = reviewEnd;
+      const devEnd = Math.max(devStart + 1, totalDaysMax - 1);
+      return {
+        1: "День 1 · 15–30 мин",
+        2: `День 1–${demoEnd} · Концепт`,
+        3: `День ${demoEnd}–${reviewEnd} · Ревью`,
+        4: `День ${reviewEnd} · Договор`,
+        5: `День ${devStart}–${devEnd} · Разработка`,
+        6: `День ~${totalDaysMax} · Сдача & Релиз`,
+      };
+    }
+
+    // Крупный проект (многостраничник, e-commerce, 14-35 дней)
+    const demoEnd = isExpress ? 3 : 4;
+    const reviewEnd = isExpress ? 4 : 5;
+    const devStart = reviewEnd;
+    const devEnd = Math.max(devStart + 5, totalDaysMax - 2);
+    return {
+      1: "День 1 · Брифинг",
+      2: `День 1–${demoEnd} · Концепт первого экрана`,
+      3: `День ${demoEnd}–${reviewEnd} · Утверждение стиля`,
+      4: `День ${reviewEnd} · Договор и спринты`,
+      5: `День ${devStart}–${devEnd} · Полный продакшн`,
+      6: `День ~${totalDaysMax} · Деплой & Запуск`,
+    };
+  };
+
   const calculate = () => {
     const selectedTypeInput = calcSection.querySelector('input[name="calc-type"]:checked');
     const typeKey = selectedTypeInput ? selectedTypeInput.value : "landing";
@@ -166,7 +241,12 @@
       daysValEl.textContent = `~${totalDaysMin}–${totalDaysMax} рабочих дней`;
     }
 
-    return {
+    const targetDateObj = addWorkingDays(new Date(), totalDaysMax);
+    const targetDateStr = formatDateRu(targetDateObj);
+    const stepSchedule = getStepSchedule(typeKey, totalDaysMin, totalDaysMax, isExpress);
+
+    const calcState = {
+      typeKey,
       typeName: typeData.title,
       serviceRadioVal: typeData.serviceRadio,
       designName: designData.title,
@@ -176,7 +256,14 @@
       totalMax,
       totalDaysMin,
       totalDaysMax,
+      targetDateStr,
+      stepSchedule,
     };
+
+    window.__AO_CALC_STATE__ = calcState;
+    window.dispatchEvent(new CustomEvent("ao:calc-update", { detail: calcState }));
+
+    return calcState;
   };
 
   // Пересчет при любом клике / изменении инпутов

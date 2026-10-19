@@ -1158,6 +1158,29 @@
           </p>
         </header>
 
+        <div class="process-calc-bar reveal" id="process-calc-bar" aria-live="polite">
+          <div class="process-calc-bar__left">
+            <span class="process-calc-bar__indicator" aria-hidden="true"></span>
+            <span class="process-calc-bar__label">График под проект:</span>
+            <strong class="process-calc-bar__type" id="process-calc-type">Конверсионный лендинг</strong>
+            <span class="process-calc-bar__badge" id="process-calc-badge">Стандарт</span>
+          </div>
+          <div class="process-calc-bar__right">
+            <div class="process-calc-bar__stat">
+              <span class="process-calc-bar__stat-label">Срок:</span>
+              <strong class="process-calc-bar__stat-val" id="process-calc-days">~5–8 раб. дней</strong>
+            </div>
+            <div class="process-calc-bar__stat">
+              <span class="process-calc-bar__stat-label">Готовность:</span>
+              <strong class="process-calc-bar__stat-val" id="process-calc-date">~28 октября</strong>
+            </div>
+            <a class="process-calc-bar__edit" href="#calculator" aria-label="Изменить параметры в калькуляторе">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span>Настроить</span>
+            </a>
+          </div>
+        </div>
+
         <div class="process__track" id="processTrack">
           <div class="process__line" aria-hidden="true">
             <span class="process__line-fill"></span>
@@ -1169,7 +1192,10 @@
               <span class="process__node" aria-hidden="true"></span>
               <div class="process__content">
                 <article class="card card--hover card--pad process__card">
-                  <span class="process__step">Шаг 01</span>
+                  <div class="process__card-header">
+                    <span class="process__step">Шаг 01</span>
+                    <span class="process__time-tag" data-process-time="1">День 1 · 15–30 мин</span>
+                  </div>
                   <h3 class="card__title">Консультация</h3>
                   <p class="card__text">Обсуждаем задачи проекта, анализируем нишу и фиксируем требования.</p>
                 </article>
@@ -1180,7 +1206,10 @@
               <span class="process__node" aria-hidden="true"></span>
               <div class="process__content">
                 <article class="card card--hover card--pad process__card">
-                  <span class="process__step">Шаг 02</span>
+                  <div class="process__card-header">
+                    <span class="process__step">Шаг 02</span>
+                    <span class="process__time-tag" data-process-time="2">День 1–2 · Концепт</span>
+                  </div>
                   <h3 class="card__title">Бесплатное DEMO</h3>
                   <p class="card__text">Разрабатываем и демонстрируем первый экран вашего будущего сайта без предоплаты.
                   </p>
@@ -1192,7 +1221,10 @@
               <span class="process__node" aria-hidden="true"></span>
               <div class="process__content">
                 <article class="card card--hover card--pad process__card">
-                  <span class="process__step">Шаг 03</span>
+                  <div class="process__card-header">
+                    <span class="process__step">Шаг 03</span>
+                    <span class="process__time-tag" data-process-time="3">День 2–3 · Ревью</span>
+                  </div>
                   <h3 class="card__title">Согласование</h3>
                   <p class="card__text">Оцениваем DEMO-версию, утверждаем стиль, сроки и финальную стоимость.</p>
                 </article>
@@ -1203,7 +1235,10 @@
               <span class="process__node" aria-hidden="true"></span>
               <div class="process__content">
                 <article class="card card--hover card--pad process__card">
-                  <span class="process__step">Шаг 04</span>
+                  <div class="process__card-header">
+                    <span class="process__step">Шаг 04</span>
+                    <span class="process__time-tag" data-process-time="4">День 3 · Договор</span>
+                  </div>
                   <h3 class="card__title">Предоплата</h3>
                   <p class="card__text">После вашего одобрения концепта заключаем договор и вносится 30% предоплаты.</p>
                 </article>
@@ -1214,7 +1249,10 @@
               <span class="process__node" aria-hidden="true"></span>
               <div class="process__content">
                 <article class="card card--hover card--pad process__card">
-                  <span class="process__step">Шаг 05</span>
+                  <div class="process__card-header">
+                    <span class="process__step">Шаг 05</span>
+                    <span class="process__time-tag" data-process-time="5">День 3–7 · Разработка</span>
+                  </div>
                   <h3 class="card__title">Полная разработка</h3>
                   <p class="card__text">Верстаем все страницы, настраиваем адаптивность и демонстрируем готовый проект.
                   </p>
@@ -1226,7 +1264,10 @@
               <span class="process__node" aria-hidden="true"></span>
               <div class="process__content">
                 <article class="card card--hover card--pad process__card">
-                  <span class="process__step">Шаг 06</span>
+                  <div class="process__card-header">
+                    <span class="process__step">Шаг 06</span>
+                    <span class="process__time-tag" data-process-time="6">День ~8 · Сдача &amp; Релиз</span>
+                  </div>
                   <h3 class="card__title">Передача исходников</h3>
                   <p class="card__text">После финального расчета передаем полный архив проекта, подключаем домен и
                     выводим сайт на хостинг.</p>
